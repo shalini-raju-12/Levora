@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
-import { FiMail, FiLock, FiEye, FiEyeOff } from "react-icons/fi";
+import { FiMail, FiLock, FiUser, FiPhone, FiBriefcase, FiEye, FiEyeOff } from "react-icons/fi";
 import { useState } from "react";
 import "../styles/login.css";
 import logo from "../assets/images/lemonpeek-logo.png";
 
-function Login() {
+function Register() {
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleGoogleLogin = () => {
     // Google OAuth function will be called here
@@ -19,11 +20,9 @@ function Login() {
         <div className="login-hero-content">
           <div className="login-logo-container">
             <img 
-              
               src={logo}
-            alt="Levora Logo"
-            className="login-logo-image"
-
+              alt="Levora Logo"
+              className="login-logo-image"
             />
           </div>
           <h1 className="login-brand-name">Levora</h1>
@@ -34,17 +33,53 @@ function Login() {
         </div>
       </div>
 
-      {/* Login Form Section */}
-      <div className="login-form-section">
-        <div className="login-card">
+      {/* Register Form Section */}
+      <div className="register-form-section">
+        <div className="register-card">
           <div className="login-card-header">
-            <h2 className="login-card-title">Welcome Back</h2>
-            <p className="login-card-subtitle">Sign in to your account</p>
+            <h2 className="login-card-title">Create Account</h2>
+            <p className="login-card-subtitle">Join our platform today</p>
           </div>
 
           <form>
             <div className="login-form-group">
-              <label className="login-form-label">Email Address</label>
+              <label className="login-form-label">First Name</label>
+              <div style={{ position: 'relative' }}>
+                <input
+                  type="text"
+                  className="login-form-control"
+                  placeholder="Enter first name"
+                />
+                <FiUser className="login-input-icon" />
+              </div>
+            </div>
+
+            <div className="login-form-group">
+              <label className="login-form-label">Last Name</label>
+              <div style={{ position: 'relative' }}>
+                <input
+                  type="text"
+                  className="login-form-control"
+                  placeholder="Enter last name"
+                />
+                <FiUser className="login-input-icon" />
+              </div>
+            </div>
+
+            <div className="login-form-group">
+              <label className="login-form-label">Employee ID</label>
+              <div style={{ position: 'relative' }}>
+                <input
+                  type="text"
+                  className="login-form-control"
+                  placeholder="Enter employee ID"
+                />
+                <FiBriefcase className="login-input-icon" />
+              </div>
+            </div>
+
+            <div className="login-form-group">
+              <label className="login-form-label">Email</label>
               <div style={{ position: 'relative' }}>
                 <input
                   type="email"
@@ -56,12 +91,24 @@ function Login() {
             </div>
 
             <div className="login-form-group">
+              <label className="login-form-label">Phone Number</label>
+              <div style={{ position: 'relative' }}>
+                <input
+                  type="tel"
+                  className="login-form-control"
+                  placeholder="Enter phone number"
+                />
+                <FiPhone className="login-input-icon" />
+              </div>
+            </div>
+
+            <div className="login-form-group">
               <label className="login-form-label">Password</label>
               <div style={{ position: 'relative' }}>
                 <input
                   type={showPassword ? "text" : "password"}
                   className="login-form-control"
-                  placeholder="Enter your password"
+                  placeholder="Enter password"
                   style={{ paddingRight: '3rem' }}
                 />
                 <FiLock className="login-input-icon" />
@@ -75,18 +122,28 @@ function Login() {
               </div>
             </div>
 
-            <div className="login-checkbox-group">
-              <div className="login-checkbox">
-                <input type="checkbox" id="remember" />
-                <label htmlFor="remember">Remember me</label>
+            <div className="login-form-group">
+              <label className="login-form-label">Confirm Password</label>
+              <div style={{ position: 'relative' }}>
+                <input
+                  type={showConfirmPassword ? "text" : "password"}
+                  className="login-form-control"
+                  placeholder="Confirm password"
+                  style={{ paddingRight: '3rem' }}
+                />
+                <FiLock className="login-input-icon" />
+                <button
+                  type="button"
+                  className="login-password-toggle"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                >
+                  {showConfirmPassword ? <FiEyeOff /> : <FiEye />}
+                </button>
               </div>
-              <Link to="/forgot-password" className="login-forgot-link">
-                Forgot Password?
-              </Link>
             </div>
 
             <button type="submit" className="login-btn">
-              Sign In
+              Create Account
             </button>
 
             <div className="login-divider">
@@ -104,7 +161,7 @@ function Login() {
             </button>
 
             <div className="login-register-link">
-              Don't have an account? <Link to="/register">Register</Link>
+              Already have an account? <Link to="/login">Login</Link>
             </div>
 
             <div className="login-copyright">
@@ -117,4 +174,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;
