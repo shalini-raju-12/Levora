@@ -32,3 +32,13 @@ class EmployeeService:
             .execute()
         )
         return response.data
+
+    @staticmethod
+    def get_employee_by_id(employee_id):
+        response = (
+            supabase.table("employees")
+            .select("*")
+            .eq("id", employee_id)
+            .execute()
+        )
+        return response.data

@@ -17,6 +17,12 @@ def create_employee():
     return jsonify(employee), 201
 
 
+@employee_bp.route("/employees/<employee_id>", methods=["GET"])
+def get_employee(employee_id):
+    employee = EmployeeService.get_employee_by_id(employee_id)
+    return jsonify(employee)
+
+
 @employee_bp.route("/employees/<employee_id>", methods=["PUT"])
 def update_employee(employee_id):
     data = request.get_json()

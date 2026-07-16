@@ -7,7 +7,8 @@ class Leave:
         start_date=None,
         end_date=None,
         reason=None,
-        status="Pending"
+        status="Pending",
+        applied_on=None
     ):
         self.id = id
         self.employee_id = employee_id
@@ -16,6 +17,7 @@ class Leave:
         self.end_date = end_date
         self.reason = reason
         self.status = status
+        self.applied_on = applied_on
 
     def to_dict(self):
         return {
@@ -25,5 +27,6 @@ class Leave:
             "start_date": self.start_date,
             "end_date": self.end_date,
             "reason": self.reason,
-            "status": self.status
+            "status": self.status,
+            "applied_on": self.applied_on
         }
