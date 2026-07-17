@@ -6,31 +6,58 @@ leave_bp = Blueprint("leave", __name__)
 
 @leave_bp.route("/leaves", methods=["GET"])
 def get_leaves():
-    leaves = LeaveService.get_all_leaves()
-    return jsonify(leaves)
+    try:
+        status = request.args.get("status")
+        employee_id = request.args.get("employee_id")
+        leaves = LeaveService.get_all_leaves(status=status, employee_id=employee_id)
+        return jsonify(leaves), 200
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
 
 
 @leave_bp.route("/leaves", methods=["POST"])
 def create_leave():
-    data = request.get_json()
-    leave = LeaveService.create_leave(data)
-    return jsonify(leave), 201
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({"status": "error", "message": "No data provided"}), 400
+        leave = LeaveService.create_leave(data)
+        return jsonify(leave), 201
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
 
 
 @leave_bp.route("/leaves/<leave_id>", methods=["GET"])
 def get_leave(leave_id):
-    leave = LeaveService.get_leave_by_id(leave_id)
-    return jsonify(leave)
+    try:
+        leave = LeaveService.get_leave_by_id(leave_id)
+        if not leave:
+            return jsonify({"status": "error", "message": "Leave not found"}), 404
+        return jsonify(leave), 200
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
 
 
 @leave_bp.route("/leaves/<leave_id>", methods=["PUT"])
 def update_leave(leave_id):
-    data = request.get_json()
-    leave = LeaveService.update_leave(leave_id, data)
-    return jsonify(leave)
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({"status": "error", "message": "No data provided"}), 400
+        leave = LeaveService.update_leave(leave_id, data)
+        if not leave:
+            return jsonify({"status": "error", "message": "Leave not found"}), 404
+        return jsonify(leave), 200
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
 
 
 @leave_bp.route("/leaves/<leave_id>", methods=["DELETE"])
 def delete_leave(leave_id):
-    leave = LeaveService.delete_leave(leave_id)
-    return jsonify(leave)
+    try:
+        leave = LeaveService.delete_leave(leave_id)
+        if not leave:
+            return jsonify({"status": "error", "message": "Leave not found"}), 404
+        return jsonify(leave), 200
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500

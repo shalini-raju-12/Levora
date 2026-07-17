@@ -6,31 +6,56 @@ department_bp = Blueprint("department", __name__)
 
 @department_bp.route("/departments", methods=["GET"])
 def get_departments():
-    departments = DepartmentService.get_all_departments()
-    return jsonify(departments)
+    try:
+        departments = DepartmentService.get_all_departments()
+        return jsonify(departments), 200
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
 
 
 @department_bp.route("/departments", methods=["POST"])
 def create_department():
-    data = request.get_json()
-    department = DepartmentService.create_department(data)
-    return jsonify(department), 201
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({"status": "error", "message": "No data provided"}), 400
+        department = DepartmentService.create_department(data)
+        return jsonify(department), 201
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
 
 
 @department_bp.route("/departments/<department_id>", methods=["GET"])
 def get_department(department_id):
-    department = DepartmentService.get_department_by_id(department_id)
-    return jsonify(department)
+    try:
+        department = DepartmentService.get_department_by_id(department_id)
+        if not department:
+            return jsonify({"status": "error", "message": "Department not found"}), 404
+        return jsonify(department), 200
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
 
 
 @department_bp.route("/departments/<department_id>", methods=["PUT"])
 def update_department(department_id):
-    data = request.get_json()
-    department = DepartmentService.update_department(department_id, data)
-    return jsonify(department)
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({"status": "error", "message": "No data provided"}), 400
+        department = DepartmentService.update_department(department_id, data)
+        if not department:
+            return jsonify({"status": "error", "message": "Department not found"}), 404
+        return jsonify(department), 200
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
 
 
 @department_bp.route("/departments/<department_id>", methods=["DELETE"])
 def delete_department(department_id):
-    department = DepartmentService.delete_department(department_id)
-    return jsonify(department)
+    try:
+        department = DepartmentService.delete_department(department_id)
+        if not department:
+            return jsonify({"status": "error", "message": "Department not found"}), 404
+        return jsonify(department), 200
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
