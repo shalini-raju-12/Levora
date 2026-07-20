@@ -13,7 +13,11 @@ def get_payroll():
         payroll = PayrollService.get_all_payroll(
             month=month, year=year, employee_id=employee_id
         )
-        return jsonify(payroll), 200
+        return jsonify({
+            "status": "success",
+            "count": len(payroll),
+            "data": payroll
+        }), 200
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
@@ -25,7 +29,11 @@ def create_payroll():
         if not data:
             return jsonify({"status": "error", "message": "No data provided"}), 400
         payroll = PayrollService.create_payroll(data)
-        return jsonify(payroll), 201
+        return jsonify({
+            "status": "success",
+            "message": "Payroll created successfully",
+            "data": payroll
+        }), 201
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
@@ -36,7 +44,10 @@ def get_payroll_record(payroll_id):
         payroll = PayrollService.get_payroll_by_id(payroll_id)
         if not payroll:
             return jsonify({"status": "error", "message": "Payroll record not found"}), 404
-        return jsonify(payroll), 200
+        return jsonify({
+            "status": "success",
+            "data": payroll
+        }), 200
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
@@ -50,7 +61,11 @@ def update_payroll(payroll_id):
         payroll = PayrollService.update_payroll(payroll_id, data)
         if not payroll:
             return jsonify({"status": "error", "message": "Payroll record not found"}), 404
-        return jsonify(payroll), 200
+        return jsonify({
+            "status": "success",
+            "message": "Payroll updated successfully",
+            "data": payroll
+        }), 200
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
@@ -61,6 +76,9 @@ def delete_payroll(payroll_id):
         payroll = PayrollService.delete_payroll(payroll_id)
         if not payroll:
             return jsonify({"status": "error", "message": "Payroll record not found"}), 404
-        return jsonify(payroll), 200
+        return jsonify({
+            "status": "success",
+            "message": "Payroll deleted successfully"
+        }), 200
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500

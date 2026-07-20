@@ -17,6 +17,7 @@ class DashboardService:
 
             # Today's attendance
             today = date.today().isoformat()
+            print(f"DEBUG: Today's date (ISO): {today}")
             attendance_response = (
                 supabase.table("attendance")
                 .select("*")
@@ -24,11 +25,14 @@ class DashboardService:
                 .execute()
             )
             attendance_data = attendance_response.data
+            print(f"DEBUG: Attendance data for today: {attendance_data}")
+            print(f"DEBUG: Attendance data length: {len(attendance_data)}")
             total_attendance_today = len(attendance_data)
 
             # Present and Absent today
             present_today = len([a for a in attendance_data if a.get("status") == "Present"])
             absent_today = len([a for a in attendance_data if a.get("status") == "Absent"])
+            print(f"DEBUG: Present today: {present_today}, Absent today: {absent_today}")
 
             # Leave statistics
             leaves_response = supabase.table("leaves").select("*").execute()

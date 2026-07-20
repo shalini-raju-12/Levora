@@ -8,8 +8,13 @@ employee_bp = Blueprint("employee", __name__)
 def get_employees():
     try:
         search = request.args.get("search")
-        employees = EmployeeService.get_all_employees(search=search)
-        return jsonify(employees), 200
+        result = EmployeeService.get_all_employees(search=search)
+        employees = result.get("data", []) if isinstance(result, dict) else result
+        return jsonify({
+            "status": "success",
+            "count": len(employees),
+            "data": employees
+        }), 200
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
@@ -20,8 +25,15 @@ def create_employee():
         data = request.get_json()
         if not data:
             return jsonify({"status": "error", "message": "No data provided"}), 400
-        employee = EmployeeService.create_employee(data)
-        return jsonify(employee), 201
+        result = EmployeeService.create_employee(data)
+        if not result.get("success"):
+            return jsonify({"status": "error", "message": result.get("message")}), 400
+        employee = result.get("data")
+        return jsonify({
+            "status": "success",
+            "message": "Employee created successfully",
+            "data": employee
+        }), 201
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
@@ -29,10 +41,14 @@ def create_employee():
 @employee_bp.route("/employees/<employee_id>", methods=["GET"])
 def get_employee(employee_id):
     try:
-        employee = EmployeeService.get_employee_by_id(employee_id)
-        if not employee:
-            return jsonify({"status": "error", "message": "Employee not found"}), 404
-        return jsonify(employee), 200
+        result = EmployeeService.get_employee_by_id(employee_id)
+        if not result.get("success"):
+            return jsonify({"status": "error", "message": result.get("message")}), 404
+        employee = result.get("data")
+        return jsonify({
+            "status": "success",
+            "data": employee
+        }), 200
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
@@ -43,10 +59,15 @@ def update_employee(employee_id):
         data = request.get_json()
         if not data:
             return jsonify({"status": "error", "message": "No data provided"}), 400
-        employee = EmployeeService.update_employee(employee_id, data)
-        if not employee:
-            return jsonify({"status": "error", "message": "Employee not found"}), 404
-        return jsonify(employee), 200
+        result = EmployeeService.update_employee(employee_id, data)
+        if not result.get("success"):
+            return jsonify({"status": "error", "message": result.get("message")}), 404
+        employee = result.get("data")
+        return jsonify({
+            "status": "success",
+            "message": "Employee updated successfully",
+            "data": employee
+        }), 200
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
@@ -54,9 +75,12 @@ def update_employee(employee_id):
 @employee_bp.route("/employees/<employee_id>", methods=["DELETE"])
 def delete_employee(employee_id):
     try:
-        employee = EmployeeService.delete_employee(employee_id)
-        if not employee:
-            return jsonify({"status": "error", "message": "Employee not found"}), 404
-        return jsonify(employee), 200
+        result = EmployeeService.delete_employee(employee_id)
+        if not result.get("success"):
+            return jsonify({"status": "error", "message": result.get("message")}), 404
+        return jsonify({
+            "status": "success",
+            "message": "Employee deleted successfully"
+        }), 200
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500

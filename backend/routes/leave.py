@@ -10,7 +10,11 @@ def get_leaves():
         status = request.args.get("status")
         employee_id = request.args.get("employee_id")
         leaves = LeaveService.get_all_leaves(status=status, employee_id=employee_id)
-        return jsonify(leaves), 200
+        return jsonify({
+            "status": "success",
+            "count": len(leaves),
+            "data": leaves
+        }), 200
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
@@ -22,7 +26,11 @@ def create_leave():
         if not data:
             return jsonify({"status": "error", "message": "No data provided"}), 400
         leave = LeaveService.create_leave(data)
-        return jsonify(leave), 201
+        return jsonify({
+            "status": "success",
+            "message": "Leave created successfully",
+            "data": leave
+        }), 201
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
@@ -33,7 +41,10 @@ def get_leave(leave_id):
         leave = LeaveService.get_leave_by_id(leave_id)
         if not leave:
             return jsonify({"status": "error", "message": "Leave not found"}), 404
-        return jsonify(leave), 200
+        return jsonify({
+            "status": "success",
+            "data": leave
+        }), 200
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
@@ -47,7 +58,11 @@ def update_leave(leave_id):
         leave = LeaveService.update_leave(leave_id, data)
         if not leave:
             return jsonify({"status": "error", "message": "Leave not found"}), 404
-        return jsonify(leave), 200
+        return jsonify({
+            "status": "success",
+            "message": "Leave updated successfully",
+            "data": leave
+        }), 200
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
@@ -58,6 +73,9 @@ def delete_leave(leave_id):
         leave = LeaveService.delete_leave(leave_id)
         if not leave:
             return jsonify({"status": "error", "message": "Leave not found"}), 404
-        return jsonify(leave), 200
+        return jsonify({
+            "status": "success",
+            "message": "Leave deleted successfully"
+        }), 200
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
