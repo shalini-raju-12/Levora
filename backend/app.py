@@ -9,6 +9,7 @@ from routes.attendance import attendance_bp
 from routes.payroll import payroll_bp
 from routes.dashboard import dashboard_bp
 from routes.reports import reports_bp
+from routes.auth import auth_bp
 
 app = Flask(__name__)
 
@@ -22,6 +23,7 @@ app.register_blueprint(attendance_bp)
 app.register_blueprint(payroll_bp)
 app.register_blueprint(reports_bp)
 app.register_blueprint(dashboard_bp)
+app.register_blueprint(auth_bp)
 
 
 @app.route("/")
