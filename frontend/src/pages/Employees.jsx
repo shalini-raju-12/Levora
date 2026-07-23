@@ -1,4 +1,4 @@
-import { FiPlus, FiSearch, FiFilter, FiDownload, FiEye, FiEdit, FiTrash2, FiUsers, FiUserCheck, FiBriefcase, FiUserPlus, FiUser } from "react-icons/fi";
+import { FiPlus, FiFilter, FiDownload, FiEye, FiEdit, FiTrash2, FiUsers, FiUserCheck, FiBriefcase, FiUserPlus, FiUser } from "react-icons/fi";
 import { useState, useEffect, useMemo } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -6,6 +6,7 @@ import AddEmployeeModal from "../components/employee/AddEmployeeModal";
 import ViewEmployeeModal from "../components/employee/ViewEmployeeModal";
 import EditEmployeeModal from "../components/employee/EditEmployeeModal";
 import DeleteEmployeeModal from "../components/employee/DeleteEmployeeModal";
+import SearchInput from "../components/common/SearchInput";
 import "../styles/employees.css";
 import "../styles/add-employee-modal.css";
 import "../styles/view-employee-modal.css";
@@ -367,19 +368,14 @@ function Employees() {
       {/* Search & Filter Section */}
       <div className="employees-filter-section">
         <div className="employees-filter-left">
-          <div className="search-box">
-            <FiSearch className="search-icon" size={18} />
-            <input
-              type="text"
-              placeholder="Search employee..."
-              className="search-input"
-              value={searchTerm}
-              onChange={(e) => {
-                setSearchTerm(e.target.value);
-                setCurrentPage(1);
-              }}
-            />
-          </div>
+          <SearchInput
+            placeholder="Search employees..."
+            value={searchTerm}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+              setCurrentPage(1);
+            }}
+          />
           <select
             className="filter-select"
             value={filterDepartment}

@@ -443,6 +443,21 @@
   .main-sidebar {
     width: 280px;
   }
+
+  .main-sidebar.collapsed {
+    width: 80px;
+  }
+
+  .main-sidebar.collapsed .sidebar-logo-text,
+  .main-sidebar.collapsed .sidebar-menu-text,
+  .main-sidebar.collapsed .sidebar-menu-arrow {
+    display: none;
+  }
+
+  .main-sidebar.collapsed .sidebar-menu-item {
+    justify-content: center;
+    padding: 12px;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {

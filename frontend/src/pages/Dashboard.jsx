@@ -68,21 +68,17 @@ function Dashboard() {
 
       {/* Charts Section */}
       <div className="dashboard-section">
-        <div className="row g-4">
-          <div className="col-lg-8 col-md-12">
-            <div className="dashboard-chart-card">
-              <h3 className="dashboard-card-title">Attendance Overview</h3>
-              <div className="dashboard-chart-container">
-                <AttendanceChart />
-              </div>
+        <div className="dashboard-charts-grid">
+          <div className="dashboard-chart-card">
+            <h3 className="dashboard-card-title">Attendance Overview</h3>
+            <div className="dashboard-chart-container">
+              <AttendanceChart />
             </div>
           </div>
-          <div className="col-lg-4 col-md-12">
-            <div className="dashboard-chart-card">
-              <h3 className="dashboard-card-title">Leave Distribution</h3>
-              <div className="dashboard-chart-container">
-                <LeaveChart />
-              </div>
+          <div className="dashboard-chart-card">
+            <h3 className="dashboard-card-title">Leave Distribution</h3>
+            <div className="dashboard-chart-container">
+              <LeaveChart />
             </div>
           </div>
         </div>
@@ -90,28 +86,20 @@ function Dashboard() {
 
       {/* Bottom Section */}
       <div className="dashboard-section">
-        <div className="row g-4 mb-4">
-          <div className="col-lg-8 col-md-12">
-            <div className="dashboard-card">
-              <RecentLeaveRequests />
-            </div>
+        <div className="dashboard-bottom-grid">
+          <div className="dashboard-card">
+            <RecentLeaveRequests />
           </div>
-          <div className="col-lg-4 col-md-12">
-            <div className="dashboard-card">
-              <QuickActions />
-            </div>
+          <div className="dashboard-card">
+            <QuickActions />
           </div>
         </div>
-        <div className="row g-4">
-          <div className="col-lg-6 col-md-12">
-            <div className="dashboard-card">
-              <NotificationsPanel />
-            </div>
+        <div className="dashboard-bottom-grid">
+          <div className="dashboard-card">
+            <NotificationsPanel />
           </div>
-          <div className="col-lg-6 col-md-12">
-            <div className="dashboard-card">
-              <RecentActivity />
-            </div>
+          <div className="dashboard-card">
+            <RecentActivity />
           </div>
         </div>
       </div>

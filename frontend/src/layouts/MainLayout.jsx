@@ -12,18 +12,21 @@ function MainLayout() {
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      
+
       // Reset states based on breakpoint
       if (width >= 768 && width < 1200) {
         // Tablet: start collapsed (icons only)
         setSidebarExpanded(false);
-        setSidebarCollapsed(false);
+        setSidebarCollapsed(true);
       } else if (width >= 1200) {
-        // Desktop: always expanded
+        // Desktop: always expanded (not collapsed)
+        setSidebarExpanded(false);
+        setSidebarCollapsed(false);
+      } else {
+        // Mobile: reset
         setSidebarExpanded(false);
         setSidebarCollapsed(false);
       }
-      // Mobile: no sidebar state changes needed
     };
 
     handleResize();

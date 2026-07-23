@@ -2,9 +2,6 @@
 .dashboard-container {
   padding: 24px;
   background-color: #f8fafc;
-  min-height: calc(100vh - 72px);
-  max-width: 100%;
-  overflow-x: hidden;
   width: 100%;
 }
 
@@ -95,9 +92,9 @@
 
 .stats-card {
   background: white;
-  border-radius: 20px;
+  border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
   border: 1px solid #e2e8f0;
   display: flex;
   align-items: center;
@@ -162,24 +159,24 @@
 
 .dashboard-stat-card {
   background: white;
-  border-radius: 20px;
+  border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
   border: 1px solid #e2e8f0;
   min-height: 140px;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .dashboard-stat-card:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+  transform: translateY(-4px);
 }
 
 .dashboard-chart-card {
   background: white;
-  border-radius: 20px;
+  border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
   border: 1px solid #e2e8f0;
   height: 320px;
   width: 100%;
@@ -208,6 +205,13 @@
   min-height: 240px;
 }
 
+/* Charts Grid */
+.dashboard-charts-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
 /* Bottom Grid */
 .dashboard-bottom-grid {
   display: grid;
@@ -224,9 +228,9 @@
 
 .dashboard-card {
   background: white;
-  border-radius: 20px;
+  border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
   border: 1px solid #e2e8f0;
   min-height: 280px;
   overflow: hidden;
@@ -463,9 +467,9 @@
 
 .quick-action-card {
   background: white;
-  border-radius: 20px;
+  border-radius: 16px;
   padding: 16px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
   border: 1px solid #e2e8f0;
   display: flex;
   flex-direction: column;
@@ -742,6 +746,10 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .dashboard-charts-grid {
+    grid-template-columns: 1fr;
+  }
+
   .dashboard-greeting {
     font-size: 28px;
   }
@@ -794,6 +802,14 @@
   .dashboard-stats-grid {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+
+  .dashboard-charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-bottom-grid {
+    grid-template-columns: 1fr;
   }
 
   .dashboard-greeting {

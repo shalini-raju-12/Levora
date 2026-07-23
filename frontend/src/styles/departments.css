@@ -1,5 +1,5 @@
-/* Employees Container */
-.employees-container {
+/* Departments Container */
+.departments-container {
   padding: 24px;
   background-color: #f8fafc;
   width: 100%;
@@ -17,8 +17,8 @@
   }
 }
 
-/* Employees Header */
-.employees-header {
+/* Departments Header */
+.departments-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,22 +27,22 @@
   gap: 16px;
 }
 
-.employees-title {
+.departments-title {
   font-family: 'Poppins', sans-serif;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 700;
   color: #0f172a;
-  margin: 0 0 8px 0;
+  margin: 0 0 4px 0;
 }
 
-.employees-subtitle {
+.departments-subtitle {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   color: #64748b;
   margin: 0;
 }
 
-.add-employee-btn {
+.add-department-btn {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -50,7 +50,7 @@
   background: #F4C542;
   color: #0f172a;
   border: none;
-  border-radius: 12px;
+  border-radius: 10px;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 600;
@@ -59,21 +59,21 @@
   box-shadow: 0 2px 8px rgba(244, 197, 66, 0.3);
 }
 
-.add-employee-btn:hover {
+.add-department-btn:hover {
   background: #e0b038;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(244, 197, 66, 0.4);
 }
 
 /* Statistics Grid */
-.employees-stats-grid {
+.departments-stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   margin-bottom: 32px;
 }
 
-.employee-stat-card {
+.department-stat-card {
   background: white;
   border-radius: 16px;
   padding: 24px;
@@ -87,7 +87,7 @@
   overflow: hidden;
 }
 
-.employee-stat-card::before {
+.department-stat-card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -99,16 +99,16 @@
   transition: opacity 0.3s ease;
 }
 
-.employee-stat-card:hover {
+.department-stat-card:hover {
   box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
   transform: translateY(-4px);
 }
 
-.employee-stat-card:hover::before {
+.department-stat-card:hover::before {
   opacity: 1;
 }
 
-.employee-stat-icon-wrapper {
+.department-stat-icon-wrapper {
   width: 56px;
   height: 56px;
   border-radius: 12px;
@@ -119,16 +119,16 @@
   background: linear-gradient(135deg, var(--stat-color), var(--stat-color-light));
 }
 
-.employee-stat-icon {
+.department-stat-icon {
   flex-shrink: 0;
   color: white;
 }
 
-.employee-stat-content {
+.department-stat-content {
   flex: 1;
 }
 
-.employee-stat-value {
+.department-stat-value {
   font-family: 'Poppins', sans-serif;
   font-size: 28px;
   font-weight: 700;
@@ -136,7 +136,7 @@
   margin: 0 0 4px 0;
 }
 
-.employee-stat-title {
+.department-stat-title {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -144,7 +144,7 @@
   margin: 0 0 4px 0;
 }
 
-.employee-stat-growth {
+.department-stat-growth {
   font-family: 'Inter', sans-serif;
   font-size: 12px;
   color: #10b981;
@@ -152,40 +152,38 @@
 }
 
 /* Filter Section */
-.employees-filter-section {
-  background: white;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
-  border: 1px solid #e2e8f0;
-  margin-bottom: 24px;
+.departments-filter-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
   gap: 16px;
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
+  flex-wrap: wrap;
 }
 
-.employees-filter-left {
+.departments-filter-left {
   display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
+  gap: 12px;
   flex: 1;
+  align-items: center;
 }
 
 .filter-select {
-  height: 48px;
-  padding: 0 16px;
+  padding: 10px 16px;
   border: 1px solid #e2e8f0;
-  border-radius: 12px;
+  border-radius: 10px;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   color: #334155;
   outline: none;
-  background: white;
   cursor: pointer;
   transition: all 0.2s ease;
-  min-width: 180px;
+  min-width: 150px;
 }
 
 .filter-select:focus {
@@ -193,17 +191,19 @@
   box-shadow: 0 0 0 3px rgba(244, 197, 66, 0.1);
 }
 
-.employees-filter-right {
+.departments-filter-right {
   display: flex;
-  gap: 20px;
-  align-items: center;
+  gap: 12px;
 }
 
-.reset-btn {
+.export-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   padding: 10px 20px;
-  background: white;
-  color: #64748b;
-  border: 1px solid #e2e8f0;
+  background: #3b82f6;
+  color: white;
+  border: none;
   border-radius: 10px;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
@@ -212,61 +212,50 @@
   transition: all 0.2s ease;
 }
 
-.reset-btn:hover {
-  background: #f8fafc;
-  border-color: #cbd5e1;
-  color: #334155;
-}
-
-.export-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  height: 48px;
-  padding: 0 20px;
-  background: #f8fafc;
-  color: #64748b;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
 .export-btn:hover {
-  background: #f1f5f9;
-  border-color: #cbd5e1;
-  color: #334155;
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+.clear-filter-btn {
+  padding: 10px 18px;
+  border: 1px solid #d1d5db;
+  background: white;
+  color: #374151;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
-.add-employee-btn-small {
+.clear-filter-btn:hover {
+  background: #f3f4f6;
+}
+
+.add-department-btn-small {
   display: flex;
   align-items: center;
   gap: 8px;
-  height: 48px;
-  padding: 0 20px;
+  padding: 10px 20px;
   background: #F4C542;
   color: #0f172a;
   border: none;
-  border-radius: 12px;
+  border-radius: 10px;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   box-shadow: 0 2px 8px rgba(244, 197, 66, 0.3);
 }
 
-.add-employee-btn-small:hover {
+.add-department-btn-small:hover {
   background: #e0b038;
-  transform: translateY(-2px);
+  transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(244, 197, 66, 0.4);
 }
 
 /* Table Section */
-.employees-table-section {
+.departments-table-section {
   background: white;
   border-radius: 16px;
   padding: 24px;
@@ -279,24 +268,23 @@
 .table-responsive {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  max-width: 100%;
 }
 
-.employees-table {
+.departments-table {
   width: 100%;
   min-width: 1200px;
   border-collapse: collapse;
   font-family: 'Inter', sans-serif;
 }
 
-.employees-table thead {
+.departments-table thead {
   background: #f8fafc;
   position: sticky;
   top: 0;
   z-index: 10;
 }
 
-.employees-table th {
+.departments-table th {
   text-align: left;
   padding: 14px 16px;
   font-size: 12px;
@@ -308,23 +296,30 @@
   white-space: nowrap;
 }
 
-.employees-table td {
+.departments-table td {
   padding: 14px 16px;
   font-size: 14px;
   color: #334155;
   border-bottom: 1px solid #f1f5f9;
 }
 
-.employees-table tbody tr:nth-child(even) {
+.departments-table tbody tr:nth-child(even) {
   background-color: #f8fafc;
 }
 
-.employees-table tbody tr:hover {
+.departments-table tbody tr:hover {
   background-color: #fef9c3;
   transition: background-color 0.2s ease;
 }
 
-.employee-profile {
+/* Department Name Cell */
+.department-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.department-avatar {
   width: 40px;
   height: 40px;
   border-radius: 10px;
@@ -338,47 +333,46 @@
   flex-shrink: 0;
 }
 
-.employee-id {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  color: #64748b;
-}
-
-.employee-name {
+.department-name {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   color: #0f172a;
 }
 
-.employee-department {
+.department-code {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.department-head {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   color: #334155;
 }
 
-.employee-designation {
+.employees-count {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #334155;
+  font-weight: 500;
+}
+
+.location-cell {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-family: 'Inter', sans-serif;
   font-size: 13px;
   color: #64748b;
 }
 
-.employee-email {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  color: #64748b;
-}
-
-.employee-phone {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  color: #64748b;
-  white-space: nowrap;
-  min-width: 140px;
-}
-
-.employee-joining-date {
+.department-created-date {
   font-family: 'Inter', sans-serif;
   font-size: 13px;
   color: #64748b;
@@ -399,11 +393,6 @@
 .status-active {
   background: #dcfce7;
   color: #166534;
-}
-
-.status-on-leave {
-  background: #fef9c3;
-  color: #854d0e;
 }
 
 .status-inactive {
@@ -435,35 +424,35 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.view-btn {
+.action-btn.view {
   background: #3b82f6;
   color: white;
 }
 
-.view-btn:hover {
+.action-btn.view:hover {
   background: #2563eb;
 }
 
-.edit-btn {
+.action-btn.edit {
   background: #F4C542;
   color: #0f172a;
 }
 
-.edit-btn:hover {
+.action-btn.edit:hover {
   background: #e0b038;
 }
 
-.delete-btn {
+.action-btn.delete {
   background: #ef4444;
   color: white;
 }
 
-.delete-btn:hover {
+.action-btn.delete:hover {
   background: #dc2626;
 }
 
 /* Pagination */
-.employees-pagination {
+.departments-pagination {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -544,7 +533,7 @@
 }
 
 /* Empty State */
-.employees-empty-state {
+.departments-empty-state {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -693,14 +682,14 @@
   margin-bottom: 8px;
 }
 
-/* Mobile Employee Cards */
-.employees-mobile-cards {
+/* Mobile Department Cards */
+.departments-mobile-cards {
   display: none;
   grid-template-columns: 1fr;
   gap: 16px;
 }
 
-.employee-mobile-card {
+.department-mobile-card {
   background: white;
   border-radius: 16px;
   padding: 20px;
@@ -712,18 +701,18 @@
   transition: all 0.3s ease;
 }
 
-.employee-mobile-card:hover {
+.department-mobile-card:hover {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transform: translateY(-2px);
 }
 
-.employee-mobile-header {
+.department-mobile-header {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.employee-mobile-avatar {
+.department-mobile-avatar {
   width: 48px;
   height: 48px;
   border-radius: 12px;
@@ -737,11 +726,11 @@
   flex-shrink: 0;
 }
 
-.employee-mobile-info {
+.department-mobile-info {
   flex: 1;
 }
 
-.employee-mobile-name {
+.department-mobile-name {
   font-family: 'Inter', sans-serif;
   font-size: 15px;
   font-weight: 600;
@@ -749,26 +738,26 @@
   margin: 0 0 4px 0;
 }
 
-.employee-mobile-id {
+.department-mobile-code {
   font-family: 'Inter', sans-serif;
   font-size: 12px;
   color: #64748b;
   margin: 0;
 }
 
-.employee-mobile-details {
+.department-mobile-details {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
 
-.employee-mobile-detail {
+.department-mobile-detail {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-.employee-mobile-detail-label {
+.department-mobile-detail-label {
   font-family: 'Inter', sans-serif;
   font-size: 11px;
   color: #64748b;
@@ -776,21 +765,21 @@
   letter-spacing: 0.5px;
 }
 
-.employee-mobile-detail-value {
+.department-mobile-detail-value {
   font-family: 'Inter', sans-serif;
   font-size: 13px;
   color: #334155;
   font-weight: 500;
 }
 
-.employee-mobile-actions {
+.department-mobile-actions {
   display: flex;
   gap: 8px;
   padding-top: 16px;
   border-top: 1px solid #f1f5f9;
 }
 
-.employee-mobile-action-btn {
+.department-mobile-action-btn {
   flex: 1;
   display: flex;
   align-items: center;
@@ -808,24 +797,24 @@
   transition: all 0.2s ease;
 }
 
-.employee-mobile-action-btn:hover {
+.department-mobile-action-btn:hover {
   transform: translateY(-1px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.employee-mobile-action-btn.view:hover {
+.department-mobile-action-btn.view:hover {
   background: #3b82f6;
   color: white;
   border-color: #3b82f6;
 }
 
-.employee-mobile-action-btn.edit:hover {
+.department-mobile-action-btn.edit:hover {
   background: #F4C542;
   color: #0f172a;
   border-color: #F4C542;
 }
 
-.employee-mobile-action-btn.delete:hover {
+.department-mobile-action-btn.delete:hover {
   background: #ef4444;
   color: white;
   border-color: #ef4444;
@@ -833,118 +822,93 @@
 
 /* Responsive Styles - Tablet */
 @media (max-width: 1199px) {
-  .employees-stats-grid {
+  .departments-stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .employees-filter-section {
+  .departments-filter-section {
     flex-direction: column;
     align-items: stretch;
   }
 
-  .employees-filter-left {
-    flex-wrap: wrap;
+  .departments-filter-left {
+    flex-direction: column;
   }
 
   .search-box {
-    flex: 1 1 100%;
+    max-width: 100%;
     min-width: 100%;
   }
 
   .filter-select {
-    flex: 1 1 calc(50% - 10px);
-    min-width: 0;
+    min-width: 100%;
   }
 
-  .employees-filter-right {
-    flex-wrap: wrap;
-    width: 100%;
+  .departments-filter-right {
+    flex-direction: column;
   }
 
   .export-btn,
-  .add-employee-btn-small {
-    flex: 1;
+  .add-department-btn-small {
+    width: 100%;
     justify-content: center;
   }
 }
 
 /* Responsive Styles - Mobile */
 @media (max-width: 767px) {
-  .employees-container {
+  .departments-container {
     padding: 16px;
   }
 
-  .employees-header {
+  .departments-header {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .employees-title {
+  .departments-title {
     font-size: 24px;
   }
 
-  .employees-subtitle {
+  .departments-subtitle {
     font-size: 13px;
   }
 
-  .add-employee-btn {
+  .add-department-btn {
     width: 100%;
     justify-content: center;
   }
 
-  .employees-stats-grid {
+  .departments-stats-grid {
     grid-template-columns: 1fr;
     gap: 16px;
   }
 
-  .employee-stat-card {
+  .department-stat-card {
     padding: 20px;
   }
 
-  .employee-stat-value {
+  .department-stat-value {
     font-size: 24px;
   }
 
-  .employees-filter-section {
+  .departments-filter-section {
     padding: 20px;
-  }
-
-  .employees-filter-left {
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .search-box,
-  .filter-select {
-    width: 100%;
-    min-width: 100%;
-  }
-
-  .employees-filter-right {
-    flex-direction: column;
-    width: 100%;
-    gap: 12px;
-  }
-
-  .export-btn,
-  .add-employee-btn-small {
-    width: 100%;
-    justify-content: center;
   }
 
   .table-responsive {
     display: none;
   }
 
-  .employees-mobile-cards {
+  .departments-mobile-cards {
     display: grid;
   }
 
-  .employees-table-section {
+  .departments-table-section {
     display: none;
   }
 
-  .employees-pagination {
+  .departments-pagination {
     flex-direction: column;
     align-items: stretch;
   }

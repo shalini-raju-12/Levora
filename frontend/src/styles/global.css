@@ -39,15 +39,69 @@ body {
 }
 
 .btn {
-  border-radius: 8px;
-  padding: 10px 24px;
+  border-radius: 12px;
+  padding: 12px 24px;
   font-weight: 500;
   transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Primary Button - Levora Yellow */
+.btn-primary {
+  background: #F4C542;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background: #e0b038;
+  box-shadow: 0 4px 12px rgba(244, 197, 66, 0.4);
+}
+
+/* Secondary Button - White */
+.btn-secondary {
+  background: white;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+}
+
+.btn-secondary:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+/* Danger Button - Red */
+.btn-danger {
+  background: #ef4444;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #dc2626;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+/* Success Button - Green */
+.btn-success {
+  background: #10b981;
+  color: white;
+}
+
+.btn-success:hover {
+  background: #059669;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
 }
 
 .form-control {
@@ -66,4 +120,77 @@ body {
   font-weight: 500;
   color: #495057;
   margin-bottom: 8px;
+}
+/* ===========================
+   Theme Support
+=========================== */
+
+body[data-theme="light"] {
+  background: #f8fafc;
+  color: #111827;
+}
+
+body[data-theme="dark"] {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+/* Cards */
+
+body[data-theme="dark"] .settings-card,
+body[data-theme="dark"] .dashboard-card,
+body[data-theme="dark"] .employee-card,
+body[data-theme="dark"] .leave-stat-card,
+body[data-theme="dark"] .attendance-stat-card,
+body[data-theme="dark"] .payroll-stat-card,
+body[data-theme="dark"] table,
+body[data-theme="dark"] .pagination-section {
+  background: #1e293b;
+  color: #f8fafc;
+}
+
+/* Table Header */
+
+body[data-theme="dark"] th {
+  background: #334155;
+  color: white;
+}
+
+/* Table Data */
+
+body[data-theme="dark"] td {
+  color: #e2e8f0;
+}
+
+/* Inputs */
+
+body[data-theme="dark"] input,
+body[data-theme="dark"] select,
+body[data-theme="dark"] textarea {
+  background: #334155;
+  color: white;
+  border: 1px solid #475569;
+}
+
+/* Sidebar */
+
+body[data-theme="dark"] .sidebar {
+  background: #0f172a;
+}
+
+/* Navbar */
+
+body[data-theme="dark"] .navbar {
+  background: #1e293b;
+}
+
+/* Buttons */
+
+body[data-theme="dark"] .btn-primary {
+  background: #2563eb;
+}
+
+body[data-theme="dark"] .btn-secondary {
+  background: #475569;
+  color: white;
 }
