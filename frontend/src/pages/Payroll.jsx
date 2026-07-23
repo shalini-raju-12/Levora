@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SearchInput from '../components/common/SearchInput';
 import '../styles/payroll.css';
 
 function Payroll() {
@@ -350,14 +351,11 @@ function Payroll() {
           {/* Filters Section */}
           <div className="filters-section">
             <div className="filters-row">
-              <div className="search-box">
-                <input
-                  type="text"
-                  placeholder="Search by name or employee ID..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-              </div>
+              <SearchInput
+                placeholder="Search by name or employee ID..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
               <select
                 className="filter-select"
                 value={departmentFilter}

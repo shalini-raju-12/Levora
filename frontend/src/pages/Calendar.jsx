@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import SearchInput from '../components/common/SearchInput';
 import '../styles/calendar.css';
 
 function Calendar() {
@@ -654,14 +655,11 @@ function Calendar() {
           {/* Filters Section */}
           <div className="filters-section">
             <div className="filters-row">
-              <div className="search-box">
-                <input
-                  type="text"
-                  placeholder="Search event or department..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-              </div>
+              <SearchInput
+                placeholder="Search event or department..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
               <select
                 className="filter-select"
                 value={eventTypeFilter}
